@@ -1,4 +1,4 @@
-package com.yaronfuks.flappybird;
+package com.yaronfuks.flyingsheep;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -16,37 +16,37 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 
 import java.util.Random;
 
-public class FlappyBird extends ApplicationAdapter {
-    SpriteBatch batch;
-    Texture background;
-    Texture bottomTube;
-    Texture topTube;
-    Texture gameOver;
-    int score = 0;
-    int scoringTube = 0;
+public class FlyingSheep extends ApplicationAdapter {
+    private SpriteBatch batch;
+    private Texture background;
+    private Texture bottomTube;
+    private Texture topTube;
+    private Texture gameOver;
+    private int score = 0;
+    private int scoringTube = 0;
 
-    Circle birdCircle;
-    ShapeRenderer shapeRenderer;
+    private Circle birdCircle;
+    private ShapeRenderer shapeRenderer;
 
-    Rectangle[] topTubeRectangles;
-    Rectangle[] bottomTubeRectangles;
-    BitmapFont font;
+    private Rectangle[] topTubeRectangles;
+    private Rectangle[] bottomTubeRectangles;
+    private BitmapFont font;
 
 
-    Texture[] birds;
-    int flapState = 0;
-    float birdY = 0;
-    float velocity = 0;
-    int gameState = 0;
-    float gravity = 2;
-    float gap = 600;
-    float maxTubeOffset;
-    Random randomGenerator;
-    float tubeVelocity = 4;
-    int numberOfTubes = 4;
-    float[] tubeX = new float[numberOfTubes];
-    float[] tubeOffset = new float[numberOfTubes];
-    float distanceBetweenTubes;
+    private Texture[] birds;
+    private int flapState = 0;
+    private float birdY = 0;
+    private float velocity = 0;
+    private int gameState = 0;
+    private float gravity = 2;
+    private float gap = 600;
+    private float maxTubeOffset;
+    private Random randomGenerator;
+    private float tubeVelocity = 4;
+    private int numberOfTubes = 4;
+    private float[] tubeX = new float[numberOfTubes];
+    private float[] tubeOffset = new float[numberOfTubes];
+    private float distanceBetweenTubes;
 
 
     @Override
@@ -180,13 +180,8 @@ public class FlappyBird extends ApplicationAdapter {
 
         birdCircle.set(Gdx.graphics.getWidth() / 2, birdY + birds[flapState].getHeight() / 2, birds[flapState].getWidth() / 2);
 
-       // shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-//        shapeRenderer.setColor(Color.RED);
-//        shapeRenderer.circle(birdCircle.x, birdCircle.y, birdCircle.radius);
 
         for (int i=0; i<numberOfTubes; i++){
-//            shapeRenderer.rect(tubeX[i], Gdx.graphics.getHeight() / 2 + gap / 2 + tubeOffset[i], topTube.getWidth() + 20, topTube.getHeight() + 1000);
-//            shapeRenderer.rect(tubeX[i], Gdx.graphics.getHeight() / 2 - gap / 2 - topTube.getHeight() + tubeOffset[i] - 1000, topTube.getWidth() + 20, topTube.getHeight() + 1000);
 
             if (Intersector.overlaps(birdCircle, topTubeRectangles[i]) || Intersector.overlaps(birdCircle, bottomTubeRectangles[i])){
 
@@ -194,7 +189,6 @@ public class FlappyBird extends ApplicationAdapter {
             }
 
         }
-     //   shapeRenderer.end();
 
 
     }
